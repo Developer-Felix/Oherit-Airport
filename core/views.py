@@ -1,23 +1,17 @@
 from ast import Subscript
 from django.shortcuts import render
 
-from core.models import Booking, Subscription
+from core.models import Booking, Destination, Subscription
 
 # Create your views here.
 def index(request):
+    destinations = Destination.objects.all().order_by('-id')
     if request.method == "POST":
-        #Subscription POST mail
-        mail = request.POST.get('mail')
-        # print(mail)
-        try:
-            subsciption = Subscription(mail=mail)
-            subsciption.save()
-            # print("done")
-        except:
-            # print("fail")
-            pass
+        
 
         #Booking Post
+        
+
         curent_location = request.POST.get('curent_location')
         to = request.POST.get('to')
         date_dep = request.POST.get('date_dep')
@@ -29,17 +23,10 @@ def index(request):
         email = request.POST.get('email')
         # print(to)
         # print(curent_location)
-        print(time)
-        print(date_dep)
-        # print(time)
-        # print(no_of_persons)
-        # print(type_of_aircraft)
-        # print(name)
-        # print(phone)
-        # print(email)
+        
 
-        booking = Booking(curent_location=curent_location, 
-                          to = to,
+        booking = Booking(curent_location=Destination.objects.get(id=curent_location), 
+                          to = Destination.objects.get(id=to),
                           date_dep = date_dep,
                           time = time,
                           no_of_persons = no_of_persons,
@@ -52,6 +39,19 @@ def index(request):
         booking.save()
         print("done")
 
+        #Subscription POST mail
+        mail = request.POST.get('mail')
+        # print(mail)
+        try:
+            subsciption = Subscription(mail=mail)
+            subsciption.save()
+            # print("done")
+        except:
+            # print("fail")
+            pass
 
-    data = {}
+
+    data = {
+        'destinations':destinations,
+    }
     return render(request,'index.html',data)

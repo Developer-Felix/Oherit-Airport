@@ -15,7 +15,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
 
 		<!-- TITLE OF SITE -->
-		<title>Travel</title>
+		<title>Oharlt Sky Jet International Group</title>
 
 		<!-- favicon img -->
 		<link rel="shortcut icon" type="image/icon" href="{% static 'assets/logo/favicon.png' %}"/>
@@ -75,7 +75,8 @@
 						<div class="col-sm-2">
 							<div class="logo">
 								<a href="#">
-									<img src="{% static 'assets/images/logo.jpg' %}" />
+									<img style="height: 50px" src="{% static 'assets/images/logo.jpg' %}" />
+									
 								</a>
 							</div><!-- /.logo-->
 						</div><!-- /.col-->
@@ -453,7 +454,7 @@
 												</div><!--/.single-trip-circle-->
 											</div><!--/.trip-circle-->
 											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
+												<div class="col-lg-3 col-md-3 col-sm-12">
 													<div class="single-tab-select-box">
 
 														<h2>from</h2>
@@ -461,13 +462,9 @@
 														<div class="travel-select-icon">
 															<select class="form-control " name="curent_location">
 
-															  	<option value="default" >enter your location</option><!-- /.option-->
-
-															  	<option value="turkey">turkey</option><!-- /.option-->
-
-															  	<option value="russia">russia</option><!-- /.option-->
-															  	<option value="egept">egypt</option><!-- /.option-->
-
+																{% for destination in destinations %}
+																<option value="{{destination.id}}">{{destination.name}}</option><!-- /.option-->
+																{% endfor %}
 															</select><!-- /.select-->
 														</div><!-- /.travel-select-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -495,11 +492,11 @@
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
 
-												<div class="col-lg-2 col-md-1 col-sm-4">
+												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="single-tab-select-box">
 														<h2>Number of People</h2>
 														<div class="">
-															<input type="number" class="form-control" name="no_of_persons">
+															<input type="number" placeholder="Number of persons" class="form-control" name="no_of_persons" style="height: 50px;">
 														</div><!-- /.travel-select-icon -->
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
@@ -525,7 +522,7 @@
 											</div><!--/.row-->
 
 											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
+												<div class="col-lg-3 col-md-3 col-sm-12">
 													<div class="single-tab-select-box">
 
 														<h2>to</h2>
@@ -535,10 +532,9 @@
 
 															  	<option value="default">enter your destination location</option><!-- /.option-->
 
-															  	<option value="istambul">istambul</option><!-- /.option-->
-
-															  	<option value="mosko">mosko</option><!-- /.option-->
-															  	<option value="cairo">cairo</option><!-- /.option-->
+															  	{% for destination in destinations %}
+															  	<option value="{{destination.id}}">{{destination.name}}</option><!-- /.option-->
+																  {% endfor %}
 
 															</select><!-- /.select-->
 														</div><!-- /.travel-select-icon -->
@@ -546,22 +542,22 @@
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
 												
-												<div class="col-lg-3 col-md-3 col-sm-3">
-													<h2>Email</h2>
+												<div class="col-lg-3 col-md-3 col-sm-12">
+													<h2 style="padding-bottom: 15px; font-size: 20px;">Email</h2>
 														<div >
-															<input type="email"  name="email" placeholder="Enter your Email Here">
+															<input class="form-control" style="margin-left: auto; margin-right: auto; max-width: 1000px; padding: 10px;height: 50px;" type="email"  name="email" placeholder="Enter your Email Here">
 														</div><!-- /.travel-select-icon -->
 												</div><!--/.col-->
-												<div class="col-lg-3 col-md-3 col-sm-4">
-													<h2>Name</h2>
+												<div class="col-lg-3 col-md-3 col-sm-12">
+													<h2 style="padding-bottom: 15px; font-size: 20px;">Name</h2>
 														<div >
-															<input type="text"  name="name" placeholder="Enter your Name Here">
+															<input class="form-control" style="margin-left: auto; margin-right: auto; max-width: 1000px; padding: 10px;height: 50px;" type="text"  name="name" placeholder="Enter your Name Here">
 														</div><!-- /.travel-select-icon -->
 												</div><!--/.col-->
-												<div class="col-lg-3 col-md-3 col-sm-3">
-													<h2>Phone</h2>
+												<div class="col-lg-3 col-md-3 col-sm-12">
+													<h2 style="padding-bottom: 15px; font-size: 20px; padding-top: 5px;">Phone</h2>
 														<div >
-															<input type="text"  name="phone" placeholder="Enter your Phone Here">
+															<input class="form-control" style="margin-left: auto; margin-right: auto; max-width: 1000px; padding: 10px; height: 50px;" type="text"  name="phone" placeholder="Enter your Phone Here">
 														</div><!-- /.travel-select-icon -->
 												</div><!--/.col-->
 												<div class="clo-sm-5">
@@ -598,7 +594,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="{% static 'assets/images/air-cargo.jpg' %}" alt="service-icon" />
+								<img style="height: 150px; width: 200;" src="{% static 'assets/images/air-cargo.jpg' %}" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -614,7 +610,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="{% static 'assets/images/air-cargo.jpg' %}" alt="service-icon" />
+								<img style="height: 150px; width: 200;" src="{% static 'assets/images/air-cargo.jpg' %}" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -630,7 +626,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="statistics-img">
-								<img src="{% static 'assets/images/air-cargo.jpg' %}" alt="service-icon" />
+								<img style="height: 150px; width: 200;" src="{% static 'assets/images/air-cargo.jpg' %}" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 
@@ -1486,8 +1482,8 @@
 						<div class="col-sm-3">
 							<div class="single-footer-item">
 								<div class="footer-logo">
-									<a href="index.html">
-										tour<span>Nest</span>
+									<a href="#">
+										Oharlt Sky Jet <span>International Group</span>
 									</a>
 									<p>
 										best travel agency
@@ -1501,11 +1497,11 @@
 								<h2>link</h2>
 								<div class="single-footer-txt">
 									<p><a href="#">home</a></p>
-									<p><a href="#">destination</a></p>
-									<p><a href="#">spacial packages</a></p>
+									<p><a href="#destination">destination</a></p>
+									<p><a href="#packages">spacial packages</a></p>
 									<p><a href="#">special offers</a></p>
-									<p><a href="#">blog</a></p>
-									<p><a href="#">contacts</a></p>
+									<p><a href="#blog">blog</a></p>
+									<p><a href="#contacts">contacts</a></p>
 								</div><!--/.single-footer-txt-->
 							</div><!--/.single-footer-item-->
 
@@ -1529,9 +1525,9 @@
 								<h2 class="text-left">contacts</h2>
 								<div class="single-footer-txt text-left">
 									<p>+1 (300) 1234 6543</p>
-									<p class="foot-email"><a href="#">info@tnest.com</a></p>
+									<p class="foot-email"><a href="#">info@oharltinternationalgroup.com</a></p>
 									<p>North Warnner Park 336/A</p>
-									<p>Newyork, USA</p>
+									<p>Nairobi, Kenya</p>
 								</div><!--/.single-footer-txt-->
 							</div><!--/.single-footer-item-->
 						</div><!--/.col-->
